@@ -1,0 +1,15 @@
+:root
+{
+    --base-color-light: #ffffff;
+    --base-color-dark: #000000;
+    --text-color-light: #000000;
+    --text-color-dark: #ffffff;
+    --accent-color-light: #3584e4;
+    --accent-color-dark: #ffffff;
+    --font: sans-serif;
+    --tiny-feature: .125rem;
+    --small-feature: .25rem;
+    --medium-feature: .5rem;
+    --large-feature: 1rem;
+    --giant-feature: 2rem;
+}
