@@ -1,4 +1,5 @@
-// Importing needed modules
+'use strict';
+
 import { push } from 'svelte-spa-router';
 import { wrap } from 'svelte-spa-router/wrap';
 import { ACCESS_TOKEN, SERVER_ADDRESS } from './lib/stores.js';
@@ -6,9 +7,6 @@ import Index from './routes/Index.svelte';
 import Timers from './routes/Timers.svelte';
 import Settings from './routes/Settings.svelte';
 import Timer from './routes/Timer.svelte';
-
-// Activating strict mode
-'use strict';
 
 // Defining variables for stores and subscribing to them
 let accessToken;

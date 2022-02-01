@@ -1,8 +1,6 @@
-// Importing needed modules
-import { writable } from 'svelte/store';
-
-// Activating strict mode
 'use strict';
+
+import { writable } from 'svelte/store';
 
 // Creating and exporting the stores
 export const ACCESS_TOKEN = writable();

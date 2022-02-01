@@ -1,8 +1,6 @@
-// Importing needed modules
-import App from './App.svelte';
-
-// Activating strict mode
 'use strict';
+
+import App from './App.svelte';
 
 // Creating the main app object
 const app = new App({

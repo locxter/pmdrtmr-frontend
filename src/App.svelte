@@ -1,10 +1,8 @@
 <script>
-    // Importing needed modules
-    import Router from "svelte-spa-router";
-    import routes from "./routes";
-    
-    // Activating strict mode
     'use strict';
+
+    import Router from 'svelte-spa-router';
+    import routes from './routes';
 </script>
 
 <Router {routes}>

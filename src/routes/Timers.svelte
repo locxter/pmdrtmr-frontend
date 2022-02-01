@@ -1,11 +1,9 @@
 <script>
-    // Importing needed modules
+    'use strict';
+
     import { push, link } from 'svelte-spa-router';
     import { ACCESS_TOKEN, SERVER_ADDRESS } from '../lib/stores.js';
     import { revokeAccessToken, getAllTimersOfUser, createTimer, deleteTimer, getCaldavDescriptions } from '../lib/api-controller.js';
-
-    // Activating strict mode
-    'use strict';
 
     // Defining variables for stores and global stuff
     let accessToken;
@@ -20,7 +18,6 @@
     {
         accessToken = data;
     });
-
     SERVER_ADDRESS.subscribe(data =>
     {
         serverAddress = data;
@@ -31,29 +28,30 @@
     function loadTimers()
     {
         getAllTimersOfUser(serverAddress, accessToken)
-        .then(data =>
-        {
-            timers = data;
-        })
-        .catch(error =>
-        {
-            alert(error);
-        });
+            .then(data =>
+            {
+                timers = data;
+            })
+            .catch(error =>
+            {
+                alert(error);
+            });
     }
 
     // Function to log out of the current session
-    function logOut() {
+    function logOut()
+    {
         revokeAccessToken(serverAddress, accessToken)
-        .then(() =>
-        {
-            ACCESS_TOKEN.set(null);
-            SERVER_ADDRESS.set(null);
-            push('/');
-        })
-        .catch(error =>
-        {
-            alert(error);
-        });
+            .then(() =>
+            {
+                ACCESS_TOKEN.set(null);
+                SERVER_ADDRESS.set(null);
+                push('/');
+            })
+            .catch(error =>
+            {
+                alert(error);
+            });
     }
 
     // Function to toggle the visibility of CalDAV fetched tasks
@@ -64,15 +62,15 @@
         {
             caldavTasks = null;
             getCaldavDescriptions(serverAddress, accessToken)
-            .then(data =>
-            {
-                caldavTasks = data;
-            })
-            .catch(error =>
-            {
-                alert(error);
-                showCaldavTasks = false;
-            });
+                .then(data =>
+                {
+                    caldavTasks = data;
+                })
+                .catch(error =>
+                {
+                    alert(error);
+                    showCaldavTasks = false;
+                });
         }
 
     }
@@ -87,13 +85,14 @@
                 description: task
             };
             createTimer(serverAddress, accessToken, timer)
-            .then(() => {
-                loadTimers();
-            })
-            .catch(error =>
-            {
-                alert(error);
-            });
+                .then(() =>
+                {
+                    loadTimers();
+                })
+                .catch(error =>
+                {
+                    alert(error);
+                });
         }
     }
 
@@ -101,13 +100,14 @@
     function deleteTask(id)
     {
         deleteTimer(serverAddress, accessToken, id)
-        .then(() => {
-            loadTimers();
-        })
-        .catch(error =>
-        {
-            alert(error);
-        });
+            .then(() =>
+            {
+                loadTimers();
+            })
+            .catch(error =>
+            {
+                alert(error);
+            });
     }
 
     // Function to forward to /timer
@@ -138,64 +138,64 @@
     </h2>
     <button on:click={toggleShowCaldavTasks}>
         {#if showCaldavTasks}
-            Hide CalDAV tasks
+        Hide CalDAV tasks
         {:else}
-            Show CalDAV tasks
+        Show CalDAV tasks
         {/if}
     </button>
     {#if showCaldavTasks}
-        {#if caldavTasks && caldavTasks.length > 0}
-            <ul>
-                {#each caldavTasks as caldavTask}
-                    <li>
-                        <p>
-                            {caldavTask}
-                        </p>
-                        <button on:click={addTask(caldavTask)}>
-                            Add task
-                        </button>
-                    </li>
-                {/each}
-            </ul>
-        {:else}
+    {#if caldavTasks && caldavTasks.length > 0}
+    <ul>
+        {#each caldavTasks as caldavTask}
+        <li>
             <p>
-                No CalDav tasks found
+                {caldavTask}
             </p>
-        {/if}
+            <button on:click={addTask(caldavTask)}>
+                Add task
+            </button>
+        </li>
+        {/each}
+    </ul>
+    {:else}
+    <p>
+        No CalDav tasks found
+    </p>
+    {/if}
     {/if}
     <input type="text" placeholder="Task" size="60" bind:value={task}>
-    <button on:click={() => {addTask(task); task = null;}}>
+    <button on:click={()=> {addTask(task); task = null;}}>
         Add task
     </button>
     {#if timers && timers.length > 1}
-        <ol>
-            {#each timers as timer}
-                <li>
-                    <h3>
-                        {#if timer.isBreak}
-                            Break
-                        {:else}
-                            Work
-                        {/if}
-                    </h3>
-                    <p>
-                        {timer.description}
-                    </p>
-                    {#if !timer.isBreak}
-                        <button on:click={deleteTask(timer.id)}>
-                            Delete task
-                        </button>
-                    {/if}
-                </li>
-            {/each}
-        </ol>
-        <button on:click={startWorking}>
-            Start working
-        </button>
+    <ol>
+        {#each timers as timer}
+        <li>
+            <h3>
+                {#if timer.isBreak}
+                Break
+                {:else}
+                Work
+                {/if}
+            </h3>
+            <p>
+                {timer.description}
+            </p>
+            {#if !timer.isBreak}
+            <button on:click={deleteTask(timer.id)}>
+                Delete task
+            </button>
+            {/if}
+        </li>
+        {/each}
+    </ol>
+    <button on:click={startWorking}>
+        Start working
+    </button>
     {:else}
-        <p>
-            No timers found
-        </p>
+    <p>
+        No timers found
+    </p>
     {/if}
 </main>
 <footer>

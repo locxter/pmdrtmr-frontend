@@ -1,4 +1,3 @@
-// Activating strict mode
 'use strict';
 
 // Function for retrieving an access token
@@ -11,14 +10,14 @@ export async function retrieveAccessToken(serverAddress, user)
     userCredentials.append('username', user.username);
     userCredentials.append('password', user.password);
     response = await fetch(serverAddress + '/oauth/token',
-    {
-        method: 'POST',
-        headers:
         {
-            'Authorization': 'Basic cG1kcnRtcjpwbWRydG1y'
-        },
-        body: userCredentials
-    });
+            method: 'POST',
+            headers:
+            {
+                'Authorization': 'Basic cG1kcnRtcjpwbWRydG1y'
+            },
+            body: userCredentials
+        });
     responseText = await response.text();
     if (response.ok)
     {
@@ -44,13 +43,13 @@ export async function revokeAccessToken(serverAddress, accessToken)
     let response;
     let responseText;
     response = await fetch(serverAddress + '/oauth/revoke-token',
-    {
-        method: 'DELETE',
-        headers:
         {
-            'Authorization': 'Bearer ' + accessToken
-        }
-    });
+            method: 'DELETE',
+            headers:
+            {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        });
     responseText = await response.text();
     if (response.ok)
     {
@@ -68,14 +67,14 @@ export async function signUp(serverAddress, user)
     let response;
     let responseText;
     response = await fetch(serverAddress + '/signup',
-    {
-        method: 'POST',
-        headers:
         {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    })
+            method: 'POST',
+            headers:
+            {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
     responseText = await response.text();
     if (response.ok)
     {
@@ -101,13 +100,13 @@ export async function getUser(serverAddress, accessToken)
     let response;
     let responseText;
     response = await fetch(serverAddress + '/user',
-    {
-        method: 'GET',
-        headers:
         {
-            'Authorization': 'Bearer ' + accessToken
-        }
-    });
+            method: 'GET',
+            headers:
+            {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        });
     responseText = await response.text();
     if (response.ok)
     {
@@ -133,15 +132,15 @@ export async function updateUser(serverAddress, accessToken, user)
     let response;
     let responseText;
     response = await fetch(serverAddress + '/user',
-    {
-        method: 'PUT',
-        headers:
         {
-            'Authorization': 'Bearer ' + accessToken,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    });
+            method: 'PUT',
+            headers:
+            {
+                'Authorization': 'Bearer ' + accessToken,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        });
     responseText = await response.text();
     if (response.ok)
     {
@@ -167,13 +166,13 @@ export async function deleteUser(serverAddress, accessToken)
     let response;
     let responseText;
     response = await fetch(serverAddress + '/user',
-    {
-        method: 'DELETE',
-        headers:
         {
-            'Authorization': 'Bearer ' + accessToken
-        }
-    });
+            method: 'DELETE',
+            headers:
+            {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        });
     responseText = await response.text();
     if (response.ok)
     {
@@ -199,13 +198,13 @@ export async function getCaldavDescriptions(serverAddress, accessToken)
     let response;
     let responseText;
     response = await fetch(serverAddress + '/caldav',
-    {
-        method: 'GET',
-        headers:
         {
-            'Authorization': 'Bearer ' + accessToken
-        }
-    });
+            method: 'GET',
+            headers:
+            {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        });
     responseText = await response.text();
     if (response.ok)
     {
@@ -227,13 +226,13 @@ export async function getAllTimersOfUser(serverAddress, accessToken)
     let response;
     let responseText;
     response = await fetch(serverAddress + '/timers',
-    {
-        method: 'GET',
-        headers:
         {
-            'Authorization': 'Bearer ' + accessToken
-        }
-    });
+            method: 'GET',
+            headers:
+            {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        });
     responseText = await response.text();
     if (response.ok)
     {
@@ -255,15 +254,15 @@ export async function createTimer(serverAddress, accessToken, timer)
     let response;
     let responseText;
     response = await fetch(serverAddress + '/timers',
-    {
-        method: 'POST',
-        headers:
         {
-            'Authorization': 'Bearer ' + accessToken,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(timer)
-    });
+            method: 'POST',
+            headers:
+            {
+                'Authorization': 'Bearer ' + accessToken,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(timer)
+        });
     responseText = await response.text();
     if (response.ok)
     {
@@ -289,13 +288,13 @@ export async function getTimer(serverAddress, accessToken, id)
     let response;
     let responseText;
     response = await fetch(serverAddress + '/timers/' + id,
-    {
-        method: 'GET',
-        headers:
         {
-            'Authorization': 'Bearer ' + accessToken
-        }
-    });
+            method: 'GET',
+            headers:
+            {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        });
     responseText = await response.text();
     if (response.ok)
     {
@@ -321,13 +320,13 @@ export async function deleteTimer(serverAddress, accessToken, id)
     let response;
     let responseText;
     response = await fetch(serverAddress + '/timers/' + id,
-    {
-        method: 'DELETE',
-        headers:
         {
-            'Authorization': 'Bearer ' + accessToken
-        }
-    });
+            method: 'DELETE',
+            headers:
+            {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        });
     responseText = await response.text();
     if (response.ok)
     {
