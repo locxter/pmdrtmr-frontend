@@ -11,27 +11,20 @@ import Timer from './routes/Timer.svelte';
 // Defining variables for stores and subscribing to them
 let accessToken;
 let serverAddress;
-ACCESS_TOKEN.subscribe(value =>
-{
+ACCESS_TOKEN.subscribe(value => {
     accessToken = value;
 });
 
-SERVER_ADDRESS.subscribe(value =>
-{
+SERVER_ADDRESS.subscribe(value => {
     serverAddress = value;
 });
 
 // Function for checking whether all need global stores are available
-function canLoad()
-{
-    if (accessToken && serverAddress)
-    {
+function canLoad() {
+    if (accessToken && serverAddress) {
         return true
-    }
-    else
-    {
-        setTimeout(() =>
-        {
+    } else {
+        setTimeout(() => {
             push('/');
         }, 1);
         return false
@@ -40,31 +33,31 @@ function canLoad()
 
 // Exporting the routes configuration
 export default
-{
-    '/': Index,
-    '/timers': wrap(
     {
-        component: Timers,
-        conditions:
-        [
-            canLoad
-        ]
-    }),
-    '/settings': wrap(
-    {
-        component: Settings,
-        conditions:
-        [
-            canLoad
-        ]
-    }),
-    '/timer': wrap(
-    {
-        component: Timer,
-        conditions:
-        [
-            canLoad
-        ]
-    }),
-    '*': Index
-};
+        '/': Index,
+        '/timers': wrap(
+            {
+                component: Timers,
+                conditions:
+                    [
+                        canLoad
+                    ]
+            }),
+        '/settings': wrap(
+            {
+                component: Settings,
+                conditions:
+                    [
+                        canLoad
+                    ]
+            }),
+        '/timer': wrap(
+            {
+                component: Timer,
+                conditions:
+                    [
+                        canLoad
+                    ]
+            }),
+        '*': Index
+    };

@@ -14,60 +14,48 @@
     let showCaldavTasks = false;
 
     // Subscribing to global stores
-    ACCESS_TOKEN.subscribe(data =>
-    {
+    ACCESS_TOKEN.subscribe(data => {
         accessToken = data;
     });
-    SERVER_ADDRESS.subscribe(data =>
-    {
+    SERVER_ADDRESS.subscribe(data => {
         serverAddress = data;
     });
 
 
     // Function for loading the timer list
-    function loadTimers()
-    {
+    function loadTimers() {
         getAllTimersOfUser(serverAddress, accessToken)
-            .then(data =>
-            {
+            .then(data => {
                 timers = data;
             })
-            .catch(error =>
-            {
+            .catch(error => {
                 alert(error);
             });
     }
 
     // Function to log out of the current session
-    function logOut()
-    {
+    function logOut() {
         revokeAccessToken(serverAddress, accessToken)
-            .then(() =>
-            {
+            .then(() => {
                 ACCESS_TOKEN.set(null);
                 SERVER_ADDRESS.set(null);
                 push('/');
             })
-            .catch(error =>
-            {
+            .catch(error => {
                 alert(error);
             });
     }
 
     // Function to toggle the visibility of CalDAV fetched tasks
-    function toggleShowCaldavTasks()
-    {
+    function toggleShowCaldavTasks() {
         showCaldavTasks = !showCaldavTasks;
-        if (showCaldavTasks)
-        {
+        if (showCaldavTasks) {
             caldavTasks = null;
             getCaldavDescriptions(serverAddress, accessToken)
-                .then(data =>
-                {
+                .then(data => {
                     caldavTasks = data;
                 })
-                .catch(error =>
-                {
+                .catch(error => {
                     alert(error);
                     showCaldavTasks = false;
                 });
@@ -76,43 +64,35 @@
     }
 
     // Function to add a task to the timer list
-    function addTask(task)
-    {
-        if (task)
-        {
+    function addTask(task) {
+        if (task) {
             let timer =
             {
                 description: task
             };
             createTimer(serverAddress, accessToken, timer)
-                .then(() =>
-                {
+                .then(() => {
                     loadTimers();
                 })
-                .catch(error =>
-                {
+                .catch(error => {
                     alert(error);
                 });
         }
     }
 
     // Function to delete a task from the timer list
-    function deleteTask(id)
-    {
+    function deleteTask(id) {
         deleteTimer(serverAddress, accessToken, id)
-            .then(() =>
-            {
+            .then(() => {
                 loadTimers();
             })
-            .catch(error =>
-            {
+            .catch(error => {
                 alert(error);
             });
     }
 
     // Function to forward to /timer
-    function startWorking()
-    {
+    function startWorking() {
         push('/timer');
     }
 
@@ -210,26 +190,22 @@
 <style>
     header,
     main,
-    footer
-    {
+    footer {
         align-items: center;
         display: flex;
         flex-flow: column nowrap;
     }
 
     header,
-    main
-    {
+    main {
         margin: 0 0 var(--large-feature) 0;
     }
 
-    :is(header, main) > :not(:last-child)
-    {
+    :is(header, main)>:not(:last-child) {
         margin: 0 0 var(--medium-feature) 0;
     }
 
-    nav
-    {
+    nav {
         align-items: center;
         display: flex;
         flex-flow: row wrap;
@@ -237,18 +213,15 @@
         margin: calc(-1 * var(--small-feature));
     }
 
-    nav > *
-    {
+    nav>* {
         margin: var(--small-feature);
     }
 
-    ol > :not(:last-child)
-    {
+    ol>:not(:last-child) {
         margin: 0 0 var(--small-feature) 0;
     }
 
-    li > :not(:last-child)
-    {
+    li>:not(:last-child) {
         margin: 0 0 var(--tiny-feature) 0;
     }
 </style>

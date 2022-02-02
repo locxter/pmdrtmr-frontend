@@ -16,132 +16,98 @@
     let isPaused = false;
 
     // Subscribing to global stores
-    ACCESS_TOKEN.subscribe(data =>
-    {
+    ACCESS_TOKEN.subscribe(data => {
         accessToken = data;
     });
-    SERVER_ADDRESS.subscribe(data =>
-    {
+    SERVER_ADDRESS.subscribe(data => {
         serverAddress = data;
     });
 
-
     // Function for running a timer
-    function runTimer(index)
-    {
+    function runTimer(index) {
         getAllTimersOfUser(serverAddress, accessToken)
-            .then(data =>
-            {
-                if (data.length < 2)
-                {
+            .then(data => {
+                if (data.length < 2) {
                     push('/timers');
-                }
-                else
-                {
+                } else {
                     timers = data;
                     timer = timers[index];
                     countdown = timer.duration + ':00';
                     countdownTimeLeft = (timer.duration * 60) - 1;
-                    countdownInterval = setInterval(() =>
-                    {
+                    countdownInterval = setInterval(() => {
                         let countdownMinutes = Math.floor(countdownTimeLeft / 60);
                         let countdownSeconds = Math.floor(countdownTimeLeft % 60);
-                        if (countdownMinutes < 10)
-                        {
+                        if (countdownMinutes < 10) {
                             countdownMinutes = '0' + countdownMinutes;
                         }
-                        if (countdownSeconds < 10)
-                        {
+                        if (countdownSeconds < 10) {
                             countdownSeconds = '0' + countdownSeconds;
                         }
                         countdown = countdownMinutes + ':' + countdownSeconds;
                         countdownTimeLeft--;
-                        if (countdownTimeLeft === 0)
-                        {
+                        if (countdownTimeLeft === 0) {
                             clearInterval(countdownInterval);
-                            if (timer.isBreak)
-                            {
+                            if (timer.isBreak) {
                                 deleteTimer(serverAddress, accessToken, timers[0].id)
-                                    .then(() =>
-                                    {
+                                    .then(() => {
                                         runTimer(0);
                                     })
-                                    .catch(error =>
-                                    {
+                                    .catch(error => {
                                         alert(error);
                                     });
-                            }
-                            else
-                            {
+                            } else {
                                 runTimer(1);
                             }
                         }
                     }, 1000);
                 }
             })
-            .catch(error =>
-            {
+            .catch(error => {
                 alert(error);
             });
     }
 
     // Function to log out of the current session
-    function logOut()
-    {
+    function logOut() {
         revokeAccessToken(serverAddress, accessToken)
-            .then(() =>
-            {
+            .then(() => {
                 ACCESS_TOKEN.set(null);
                 SERVER_ADDRESS.set(null);
                 push('/');
             })
-            .catch(error =>
-            {
+            .catch(error => {
                 alert(error);
             });
     }
 
     // Function to toggle the state of a timer
-    function toggleIsPaused()
-    {
+    function toggleIsPaused() {
         isPaused = !isPaused;
-        if (isPaused)
-        {
+        if (isPaused) {
             clearInterval(countdownInterval);
-        }
-        else
-        {
-            countdownInterval = setInterval(() =>
-            {
+        } else {
+            countdownInterval = setInterval(() => {
                 let countdownMinutes = Math.floor(countdownTimeLeft / 60);
                 let countdownSeconds = Math.floor(countdownTimeLeft % 60);
-                if (countdownMinutes < 10)
-                {
+                if (countdownMinutes < 10) {
                     countdownMinutes = '0' + countdownMinutes;
                 }
-                if (countdownSeconds < 10)
-                {
+                if (countdownSeconds < 10) {
                     countdownSeconds = '0' + countdownSeconds;
                 }
                 countdown = countdownMinutes + ':' + countdownSeconds;
                 countdownTimeLeft--;
-                if (countdownTimeLeft === 0)
-                {
+                if (countdownTimeLeft === 0) {
                     clearInterval(countdownInterval);
-                    if (timer.isBreak)
-                    {
+                    if (timer.isBreak) {
                         deleteTimer(serverAddress, accessToken, timers[0].id)
-                            .then(() =>
-                            {
+                            .then(() => {
                                 runTimer(0);
                             })
-                            .catch(error =>
-                            {
+                            .catch(error => {
                                 alert(error);
                             });
-                    }
-                    else
-                    {
+                    } else {
                         runTimer(1);
                     }
                 }
@@ -150,8 +116,7 @@
     }
 
     // Function to forward to /timers
-    function stopWorking()
-    {
+    function stopWorking() {
         push('/timers');
     }
 
@@ -210,26 +175,22 @@
 <style>
     header,
     main,
-    footer
-    {
+    footer {
         align-items: center;
         display: flex;
         flex-flow: column nowrap;
     }
 
     header,
-    main
-    {
+    main {
         margin: 0 0 var(--large-feature) 0;
     }
 
-    :is(header, main) > :not(:last-child)
-    {
+    :is(header, main)>:not(:last-child) {
         margin: 0 0 var(--medium-feature) 0;
     }
 
-    nav
-    {
+    nav {
         align-items: center;
         display: flex;
         flex-flow: row wrap;
@@ -237,13 +198,11 @@
         margin: calc(-1 * var(--small-feature));
     }
 
-    nav > *
-    {
+    nav>* {
         margin: var(--small-feature);
     }
 
-    #countdown
-    {
+    #countdown {
         font-family: monospace;
         font-size: clamp(1.5rem, calc((100vw - (2 * var(--giant-feature))) * .3), 15rem);
     }

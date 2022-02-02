@@ -5,12 +5,10 @@
     import routes from './routes';
 </script>
 
-<Router {routes}>
-</Router>
+<Router {routes} />
 
 <style>
-    :root
-    {
+    :root {
         padding: var(--giant-feature);
     }
 </style>
