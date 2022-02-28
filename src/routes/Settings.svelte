@@ -104,9 +104,8 @@
     <label for="caldav-address"> CalDAV address: </label>
     <input id="caldav-address" type="text" placeholder="CalDAV address" size="60" bind:value={settings.caldavAddress} />
     <p>
-        Remember to always enter a password even though you may not want to
-        change it, as the settings
-        <b> will not be saved </b>
+        Remember to always enter a password even though you may not want to change it, as the settings
+        <b>will not be saved</b>
         otherwise!
     </p>
     <button on:click={saveSettings}> Save settings </button>
