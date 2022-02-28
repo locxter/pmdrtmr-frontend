@@ -48,11 +48,11 @@
 <main>
     <h2>Sign up / Log in</h2>
     <label for="username"> Username: </label>
-    <input id="username" type="text" placeholder="Username" bind:value={username} />
+    <input id="username" type="text" placeholder="Username" bind:value={username}>
     <label for="password"> Password: </label>
-    <input id="password" type="password" placeholder="Password" bind:value={password} />
+    <input id="password" type="password" placeholder="Password" bind:value={password}>
     <label for="server-address"> Server address: </label>
-    <input id="server-address" type="test" placeholder="Server address" bind:value={serverAddress} />
+    <input id="server-address" type="test" placeholder="Server address" bind:value={serverAddress}>
     <button on:click={signUpOrLogIn}> Sign up or log in </button>
 </main>
 <footer>

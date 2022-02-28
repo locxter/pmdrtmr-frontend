@@ -90,19 +90,19 @@
     <h2>Settings</h2>
     {#if settings}
     <label for="username"> Username: </label>
-    <input id="username" type="text" placeholder="Username" bind:value={settings.username} />
+    <input id="username" type="text" placeholder="Username" bind:value={settings.username}>
     <label for="password"> Password: </label>
-    <input id="password" type="password" placeholder="Password" bind:value={password} />
+    <input id="password" type="password" placeholder="Password" bind:value={password}>
     <label for="work-duration"> Work duration: </label>
-    <input id="work-duration" type="number" min="1" max="60" size="2" bind:value={settings.workDuration} />
+    <input id="work-duration" type="number" min="1" max="60" size="2" bind:value={settings.workDuration}>
     <label for="short-break-duration"> Short break duration: </label>
-    <input id="short-break-duration" type="number" min="1" max="60" size="2" bind:value={settings.shortBreakDuration} />
+    <input id="short-break-duration" type="number" min="1" max="60" size="2" bind:value={settings.shortBreakDuration}>
     <label for="long-break-duration"> Long break duration: </label>
-    <input id="long-break-duration" type="number" min="1" max="60" size="2" bind:value={settings.longBreakDuration} />
+    <input id="long-break-duration" type="number" min="1" max="60" size="2" bind:value={settings.longBreakDuration}>
     <label for="long-break-ratio"> Long break ratio: </label>
-    <input id="long-break-ratio" type="number" min="1" max="10" size="2" bind:value={settings.longBreakRatio} />
+    <input id="long-break-ratio" type="number" min="1" max="10" size="2" bind:value={settings.longBreakRatio}>
     <label for="caldav-address"> CalDAV address: </label>
-    <input id="caldav-address" type="text" placeholder="CalDAV address" size="60" bind:value={settings.caldavAddress} />
+    <input id="caldav-address" type="text" placeholder="CalDAV address" size="60" bind:value={settings.caldavAddress}>
     <p>
         Remember to always enter a password even though you may not want to change it, as the settings
         <b>will not be saved</b>
@@ -111,7 +111,7 @@
     <button on:click={saveSettings}> Save settings </button>
     <h3 class="danger">Danger zone</h3>
     <label class="danger" for="username"> Username: </label>
-    <input id="username" class="danger" type="text" placeholder="Username" bind:value={deleteConfirmation} />
+    <input id="username" class="danger" type="text" placeholder="Username" bind:value={deleteConfirmation}>
     <button class="danger" on:click={deleteThisAccount}>
         Delete this account
     </button>
