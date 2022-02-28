@@ -1,11 +1,11 @@
 'use strict';
 
-import App from './App.svelte';
+import Main from './Main.svelte';
 
-// Creating the main app object
-const app = new App({
+// Creating the main object
+const main = new Main({
 	target: document.body
 });
 
-// Exporting the app object
-export default app;
+// Exporting the main object
+export default main;
