@@ -5,21 +5,23 @@
     "description": "This is the frontend of my Pomodoro timer project pmdrtmr, which I build during my work placement at the KDO.",
     "license": "MIT",
     "scripts": {
-        "build": "npx rollup -c",
-        "dev": "npx rollup -c -w",
-        "start": "npx serve -n -l 8081 public"
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "start": "sirv public --no-clear --port 8081"
     },
     "devDependencies": {
-        "@rollup/plugin-commonjs": "^16.0.0",
-        "@rollup/plugin-node-resolve": "^10.0.0",
+        "@rollup/plugin-commonjs": "^17.0.0",
+        "@rollup/plugin-node-resolve": "^11.0.0",
         "rollup": "^2.3.4",
-        "rollup-plugin-css-only": "^3.0.0",
+        "rollup-plugin-css-only": "^3.1.0",
         "rollup-plugin-livereload": "^2.0.0",
         "rollup-plugin-svelte": "^7.0.0",
         "rollup-plugin-terser": "^7.0.0",
         "svelte": "^3.0.0"
     },
     "dependencies": {
-        "svelte-spa-router": "^3.0.4"
+        "simpledotcss": "^2.0.6",
+        "sirv-cli": "^2.0.0",
+        "svelte-spa-router": "^3.2.0"
     }
 }

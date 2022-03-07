@@ -47,36 +47,25 @@
 </header>
 <main>
     <h2>Sign up / Log in</h2>
-    <label for="username"> Username: </label>
-    <input id="username" type="text" placeholder="Username" bind:value={username}>
-    <label for="password"> Password: </label>
-    <input id="password" type="password" placeholder="Password" bind:value={password}>
-    <label for="server-address"> Server address: </label>
-    <input id="server-address" type="test" placeholder="Server address" bind:value={serverAddress}>
-    <button on:click={signUpOrLogIn}> Sign up or log in </button>
+    <label for="username">Username:</label>
+    <br />
+    <input id="username" type="text" placeholder="Username" bind:value={username} />
+    <br />
+    <label for="password">Password:</label>
+    <br />
+    <input id="password" type="password" placeholder="Password" bind:value={password} />
+    <br />
+    <label for="server-address">Server address:</label>
+    <br />
+    <input id="server-address" type="text" placeholder="Server address" bind:value={serverAddress} />
+    <br />
+    <button on:click={signUpOrLogIn}>Sign up or log in</button>
 </main>
 <footer>
     <p>
+        Made with &hearts; in Nothern Germany.
+        <br />
         2022
-        <a href="https://github.com/locxter"> locxter </a>
+        <a href="https://github.com/locxter">locxter</a>
     </p>
 </footer>
-
-<style>
-    header,
-    main,
-    footer {
-        align-items: center;
-        display: flex;
-        flex-flow: column nowrap;
-    }
-
-    header,
-    main {
-        margin: 0 0 var(--large-feature) 0;
-    }
-
-    :is(header, main)>:not(:last-child) {
-        margin: 0 0 var(--medium-feature) 0;
-    }
-</style>

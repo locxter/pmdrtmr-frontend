@@ -16,24 +16,24 @@
     let isPaused = false;
 
     // Subscribing to global stores
-    ACCESS_TOKEN.subscribe(data => {
+    ACCESS_TOKEN.subscribe((data) => {
         accessToken = data;
     });
-    SERVER_ADDRESS.subscribe(data => {
+    SERVER_ADDRESS.subscribe((data) => {
         serverAddress = data;
     });
 
     // Function for running a timer
     function runTimer(index) {
         getAllTimersOfUser(serverAddress, accessToken)
-            .then(data => {
+            .then((data) => {
                 if (data.length < 2) {
                     push('/timers');
                 } else {
                     timers = data;
                     timer = timers[index];
                     countdown = timer.duration + ':00';
-                    countdownTimeLeft = (timer.duration * 60) - 1;
+                    countdownTimeLeft = timer.duration * 60 - 1;
                     countdownInterval = setInterval(() => {
                         let countdownMinutes = Math.floor(countdownTimeLeft / 60);
                         let countdownSeconds = Math.floor(countdownTimeLeft % 60);
@@ -52,7 +52,7 @@
                                     .then(() => {
                                         runTimer(0);
                                     })
-                                    .catch(error => {
+                                    .catch((error) => {
                                         alert(error);
                                     });
                             } else {
@@ -62,7 +62,7 @@
                     }, 1000);
                 }
             })
-            .catch(error => {
+            .catch((error) => {
                 alert(error);
             });
     }
@@ -75,7 +75,7 @@
                 SERVER_ADDRESS.set(null);
                 push('/');
             })
-            .catch(error => {
+            .catch((error) => {
                 alert(error);
             });
     }
@@ -104,7 +104,7 @@
                             .then(() => {
                                 runTimer(0);
                             })
-                            .catch(error => {
+                            .catch((error) => {
                                 alert(error);
                             });
                     } else {
@@ -124,86 +124,48 @@
 </script>
 
 <header>
-    <h1>
-        pmdrtmr
-    </h1>
+    <h1>pmdrtmr</h1>
     <nav>
-        <a href="/settings" use:link>
-            Settings
-        </a>
-        <button on:click={logOut}>
-            Log out
-        </button>
+        <a href="/settings" use:link>Settings</a>
+        <button on:click={logOut}>Log out</button>
     </nav>
 </header>
 <main>
     {#if timer}
-    <h2>
-        {#if timer.isBreak}
-        Break
-        {:else}
-        Work
-        {/if}
-    </h2>
-    <p>
-        {timer.description}
-    </p>
-    <p id="countdown">
-        {countdown}
-    </p>
-    <button on:click={toggleIsPaused}>
-        {#if isPaused}
-        Resume
-        {:else}
-        Pause
-        {/if}
-    </button>
-    <button on:click={stopWorking}>
-        Stop working
-    </button>
+        <h2>
+            {#if timer.isBreak}
+                Break
+            {:else}
+                Work
+            {/if}
+        </h2>
+        <p>{timer.description}</p>
+        <p id="countdown">{countdown}</p>
+        <button on:click={toggleIsPaused}>
+            {#if isPaused}
+                Resume
+            {:else}
+                Pause
+            {/if}
+        </button>
+        <br />
+        <button on:click={stopWorking}>Stop working</button>
+    {:else}
+        <h2>Timer</h2>
+        <p>Timer not found</p>
     {/if}
 </main>
 <footer>
+    <p>Made with &hearts; in Nothern Germany.</p>
     <p>
         2022
-        <a href="https://github.com/locxter">
-            locxter
-        </a>
+        <a href="https://github.com/locxter">locxter</a>
     </p>
 </footer>
 
 <style>
-    header,
-    main,
-    footer {
-        align-items: center;
-        display: flex;
-        flex-flow: column nowrap;
-    }
-
-    header,
-    main {
-        margin: 0 0 var(--large-feature) 0;
-    }
-
-    :is(header, main)>:not(:last-child) {
-        margin: 0 0 var(--medium-feature) 0;
-    }
-
-    nav {
-        align-items: center;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        margin: calc(-1 * var(--small-feature));
-    }
-
-    nav>* {
-        margin: var(--small-feature);
-    }
-
     #countdown {
-        font-family: monospace;
-        font-size: clamp(1.5rem, calc((100vw - (2 * var(--giant-feature))) * .3), 15rem);
+        font-size: clamp(1.5rem, 30vw, 15rem);
+        margin: 0;
     }
 </style>

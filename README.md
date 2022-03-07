@@ -15,4 +15,4 @@ I generally try to minimize dependencies, but I'm a one man crew and can therefo
 
 ## How to use it
 
-First install the neede packages via `npm install`. Then run the program directly via `npm run dev` or build it via `npm run build` and then run it via `npm run start`.
+First install the needed packages via `npm install`. Then run the program directly via `npm run dev` or build it via `npm run build` and then run it via `npm run start`.
