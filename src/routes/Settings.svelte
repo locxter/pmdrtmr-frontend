@@ -99,23 +99,23 @@
         <br />
         <label for="work-duration">Work duration:</label>
         <br />
-        <input id="work-duration" type="number" min="1" max="60" size="2" bind:value={settings.workDuration} />
+        <input id="work-duration" type="number" min="1" max="60" bind:value={settings.workDuration} />
         <br />
         <label for="short-break-duration">Short break duration:</label>
         <br />
-        <input id="short-break-duration" type="number" min="1" max="60" size="2" bind:value={settings.shortBreakDuration} />
+        <input id="short-break-duration" type="number" min="1" max="60" bind:value={settings.shortBreakDuration} />
         <br />
         <label for="long-break-duration">Long break duration:</label>
         <br />
-        <input id="long-break-duration" type="number" min="1" max="60" size="2" bind:value={settings.longBreakDuration} />
+        <input id="long-break-duration" type="number" min="1" max="60" bind:value={settings.longBreakDuration} />
         <br />
         <label for="long-break-ratio">Long break ratio:</label>
         <br />
-        <input id="long-break-ratio" type="number" min="1" max="10" size="2" bind:value={settings.longBreakRatio} />
+        <input id="long-break-ratio" type="number" min="1" max="10" bind:value={settings.longBreakRatio} />
         <br />
         <label for="caldav-address">CalDAV address:</label>
         <br />
-        <input id="caldav-address" type="text" placeholder="CalDAV address" size="60" bind:value={settings.caldavAddress} />
+        <input id="caldav-address" type="text" placeholder="CalDAV address" bind:value={settings.caldavAddress} />
         <p>
             Remember to always enter a password even though you may not want to change it, as the settings
             <strong>will not be saved</strong>

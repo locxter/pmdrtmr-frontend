@@ -131,7 +131,7 @@
     {:else}
         <br />
     {/if}
-    <input type="text" placeholder="Task" size="60" bind:value={localTask} />
+    <input type="text" placeholder="Task" bind:value={localTask} />
     <br />
     <button on:click={addTask(localTask)}>Add task</button>
     {#if timers && timers.length > 1}
