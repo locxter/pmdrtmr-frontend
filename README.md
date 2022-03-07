@@ -1,4 +1,4 @@
-# pmdrtmr-frontend
+# pmdrtmr frontend
 
 ## Overview
 
@@ -10,7 +10,7 @@ I generally try to minimize dependencies, but I'm a one man crew and can therefo
 
 - NodeJS as the development base. Install it with `sudo apt install nodejs npm`.
 - VSCodium as universal text editor and IDE. To install it visit their [website](https://vscodium.com/#install).
-- VSCodium extensions npm and Sort lines to enhance it's capabilities. Install them with `codium --install-extension eg2.vscode-npm-script --install-extension Tyriar.sort-lines`.
+- VSCodium extensions npm, Svelte for VS Code and Sort lines to enhance it's capabilities. Install them with `codium --install-extension eg2.vscode-npm-script --install-extension svelte.svelte-vscode --install-extension Tyriar.sort-lines`.
 - Firefox for viewing the website. Install it with `sudo apt install firefox-esr`.
 
 ## How to use it
