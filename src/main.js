@@ -2,10 +2,10 @@
 
 import Main from './Main.svelte';
 
-// Creating the main object
+// Create the main object
 const main = new Main({
 	target: document.body
 });
 
-// Exporting the main object
+// Export the main object
 export default main;

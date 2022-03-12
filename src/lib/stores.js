@@ -2,6 +2,6 @@
 
 import { writable } from 'svelte/store';
 
-// Creating and exporting the stores
+// Create and export the stores
 export const ACCESS_TOKEN = writable();
 export const SERVER_ADDRESS = writable();

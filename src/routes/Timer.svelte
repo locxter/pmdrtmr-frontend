@@ -5,7 +5,7 @@
     import { ACCESS_TOKEN, SERVER_ADDRESS } from '../lib/stores.js';
     import { revokeAccessToken, getAllTimersOfUser, deleteTimer } from '../lib/api-controller.js';
 
-    // Defining variables for stores and global stuff
+    // Variables for stores and global stuff
     let accessToken;
     let serverAddress;
     let timers;
@@ -15,7 +15,7 @@
     let countdownInterval;
     let isPaused = false;
 
-    // Subscribing to global stores
+    // Subscribe to global stores
     ACCESS_TOKEN.subscribe((data) => {
         accessToken = data;
     });
@@ -124,10 +124,16 @@
 </script>
 
 <header>
-    <h1>pmdrtmr</h1>
+    <h1>
+        pmdrtmr
+    </h1>
     <nav>
-        <a href="/settings" use:link>Settings</a>
-        <button on:click={logOut}>Log out</button>
+        <a href="/settings" use:link>
+            Settings
+        </a>
+        <button on:click={logOut}>
+            Log out
+        </button>
     </nav>
 </header>
 <main>
@@ -139,8 +145,12 @@
                 Work
             {/if}
         </h2>
-        <p>{timer.description}</p>
-        <p id="countdown">{countdown}</p>
+        <p>
+            {timer.description}
+        </p>
+        <p id="countdown">
+            {countdown}
+        </p>
         <button on:click={toggleIsPaused}>
             {#if isPaused}
                 Resume
@@ -148,23 +158,31 @@
                 Pause
             {/if}
         </button>
-        <br />
-        <button on:click={stopWorking}>Stop working</button>
+        <br>
+        <button on:click={stopWorking}>
+            Stop working
+        </button>
     {:else}
-        <h2>Timer</h2>
-        <p>Timer not found</p>
+        <h2>
+            Timer
+        </h2>
+        <p>
+            Timer not found
+        </p>
     {/if}
 </main>
 <footer>
-    <p>Made with &hearts; in Nothern Germany.</p>
     <p>
         2022
-        <a href="https://github.com/locxter">locxter</a>
+        <a href="https://github.com/locxter">
+            locxter
+        </a>
     </p>
 </footer>
 
 <style>
     #countdown {
+        font-family: monospace;
         font-size: clamp(1.5rem, 30vw, 15rem);
         margin: 0;
     }

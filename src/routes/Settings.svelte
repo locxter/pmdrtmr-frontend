@@ -5,14 +5,14 @@
     import { ACCESS_TOKEN, SERVER_ADDRESS } from '../lib/stores.js';
     import { revokeAccessToken, getUser, updateUser, deleteUser } from '../lib/api-controller.js';
 
-    // Defining variables for stores and global stuff
+    // Variables for stores and global stuff
     let accessToken;
     let serverAddress;
     let settings;
     let password;
     let deleteConfirmation;
 
-    // Subscribing to global stores
+    // Subscribe to global stores
     ACCESS_TOKEN.subscribe((data) => {
         accessToken = data;
     });
@@ -80,56 +80,70 @@
 </script>
 
 <header>
-    <h1>pmdrtmr</h1>
+    <h1>
+        pmdrtmr
+    </h1>
     <nav>
-        <a href="/timers" use:link>Timers</a>
-        <button on:click={logOut}>Log out</button>
+        <a href="/timers" use:link>
+            Timers
+        </a>
+        <button on:click={logOut}>
+            Log out
+        </button>
     </nav>
 </header>
 <main>
-    <h2>Settings</h2>
+    <h2>
+        Settings
+    </h2>
     {#if settings}
-        <label for="username">Username:</label>
-        <br />
-        <input id="username" type="text" placeholder="Username" bind:value={settings.username} />
-        <br />
-        <label for="password">Password:</label>
-        <br />
-        <input id="password" type="password" placeholder="Password" bind:value={password} />
-        <br />
-        <label for="work-duration">Work duration:</label>
-        <br />
-        <input id="work-duration" type="number" min="1" max="60" bind:value={settings.workDuration} />
-        <br />
-        <label for="short-break-duration">Short break duration:</label>
-        <br />
-        <input id="short-break-duration" type="number" min="1" max="60" bind:value={settings.shortBreakDuration} />
-        <br />
-        <label for="long-break-duration">Long break duration:</label>
-        <br />
-        <input id="long-break-duration" type="number" min="1" max="60" bind:value={settings.longBreakDuration} />
-        <br />
-        <label for="long-break-ratio">Long break ratio:</label>
-        <br />
-        <input id="long-break-ratio" type="number" min="1" max="10" bind:value={settings.longBreakRatio} />
-        <br />
-        <label for="caldav-address">CalDAV address:</label>
-        <br />
-        <input id="caldav-address" type="text" placeholder="CalDAV address" bind:value={settings.caldavAddress} />
+        <label for="username">
+            Username:
+        </label>
+        <input id="username" type="text" placeholder="Username" bind:value={settings.username}>
+        <label for="password">
+            Password:
+        </label>
+        <input id="password" type="password" placeholder="Password" bind:value={password}>
+        <label for="work-duration">
+            Work duration:
+        </label>
+        <input id="work-duration" type="number" min="1" max="60" bind:value={settings.workDuration}>
+        <label for="short-break-duration">
+            Short break duration:
+        </label>
+        <input id="short-break-duration" type="number" min="1" max="60" bind:value={settings.shortBreakDuration}>
+        <label for="long-break-duration">
+            Long break duration:
+        </label>
+        <input id="long-break-duration" type="number" min="1" max="60" bind:value={settings.longBreakDuration}>
+        <label for="long-break-ratio">
+            Long break ratio:
+        </label>
+        <input id="long-break-ratio" type="number" min="1" max="10" bind:value={settings.longBreakRatio}>
+        <label for="caldav-address">
+            CalDAV address:
+        </label>
+        <input id="caldav-address" type="text" placeholder="CalDAV address" bind:value={settings.caldavAddress}>
         <p>
             Remember to always enter a password even though you may not want to change it, as the settings
-            <strong>will not be saved</strong>
+            <strong>
+                will not be saved
+            </strong>
             otherwise!
         </p>
-        <button on:click={saveSettings}>Save settings</button>
+        <button on:click={saveSettings}>
+            Save settings
+        </button>
         <h3>Danger zone</h3>
-        <label for="username">Username:</label>
-        <br />
-        <input id="username" type="text" placeholder="Username" bind:value={deleteConfirmation} />
-        <br />
+        <label for="username">
+            Username:
+        </label>
+        <input id="username" type="text" placeholder="Username" bind:value={deleteConfirmation}>
         <button on:click={deleteThisAccount}>
-            <strong>Delete</strong>
-            this account
+            <strong>
+                Delete this account
+            </strong>
         </button>
     {:else}
         <p>Settings not found</p>
@@ -137,9 +151,9 @@
 </main>
 <footer>
     <p>
-        Made with &hearts; in Nothern Germany.
-        <br />
         2022
-        <a href="https://github.com/locxter">locxter</a>
+        <a href="https://github.com/locxter">
+            locxter
+        </a>
     </p>
 </footer>

@@ -5,7 +5,7 @@
     import { ACCESS_TOKEN, SERVER_ADDRESS } from '../lib/stores.js';
     import { revokeAccessToken, getAllTimersOfUser, createTimer, deleteTimer, getCaldavDescriptions } from '../lib/api-controller.js';
 
-    // Defining variables for stores and global stuff
+    // Variables for stores and global stuff
     let accessToken;
     let serverAddress;
     let timers;
@@ -13,7 +13,7 @@
     let caldavTasks;
     let showCaldavTasks = false;
 
-    // Subscribing to global stores
+    // Subscribe to global stores
     ACCESS_TOKEN.subscribe((data) => {
         accessToken = data;
     });
@@ -100,14 +100,22 @@
 </script>
 
 <header>
-    <h1>pmdrtmr</h1>
+    <h1>
+        pmdrtmr
+    </h1>
     <nav>
-        <a href="/settings" use:link>Settings</a>
-        <button on:click={logOut}>Log out</button>
+        <a href="/settings" use:link>
+            Settings
+        </a>
+        <button on:click={logOut}>
+            Log out
+        </button>
     </nav>
 </header>
 <main>
-    <h2>Timers</h2>
+    <h2>
+        Timers
+    </h2>
     <button on:click={toggleShowCaldavTasks}>
         {#if showCaldavTasks}
             Hide CalDAV tasks
@@ -120,20 +128,25 @@
             <ul>
                 {#each caldavTasks as caldavTask}
                     <li>
-                        <p>{caldavTask}</p>
-                        <button on:click={addTask(caldavTask)}>Add task</button>
+                        <p>
+                            {caldavTask}
+                        </p>
+                        <button on:click={addTask(caldavTask)}>
+                            Add task
+                        </button>
                     </li>
                 {/each}
             </ul>
         {:else}
-            <p>No CalDav tasks found</p>
+            <p>
+                No CalDav tasks found
+            </p>
         {/if}
-    {:else}
-        <br />
     {/if}
-    <input type="text" placeholder="Task" bind:value={localTask} />
-    <br />
-    <button on:click={addTask(localTask)}>Add task</button>
+    <input type="text" placeholder="Task" bind:value={localTask}>
+    <button on:click={addTask(localTask)}>
+        Add task
+    </button>
     {#if timers && timers.length > 1}
         <ol>
             {#each timers as timer}
@@ -145,23 +158,31 @@
                             Work
                         {/if}
                     </h3>
-                    <p>{timer.description}</p>
+                    <p>
+                        {timer.description}
+                    </p>
                     {#if !timer.isBreak}
-                        <button on:click={deleteTask(timer.id)}>Delete task</button>
+                    <button on:click={deleteTask(timer.id)}>
+                        Delete task
+                    </button>
                     {/if}
                 </li>
             {/each}
         </ol>
-        <button on:click={startWorking}>Start working</button>
+        <button on:click={startWorking}>
+            Start working
+        </button>
     {:else}
-        <p>No timers found</p>
+        <p>
+            No timers found
+        </p>
     {/if}
 </main>
 <footer>
     <p>
-        Made with &hearts; in Nothern Germany.
-        <br />
         2022
-        <a href="https://github.com/locxter">locxter</a>
+        <a href="https://github.com/locxter">
+            locxter
+        </a>
     </p>
 </footer>

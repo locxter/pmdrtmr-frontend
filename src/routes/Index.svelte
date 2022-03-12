@@ -5,7 +5,7 @@
     import { ACCESS_TOKEN, SERVER_ADDRESS } from '../lib/stores.js';
     import { retrieveAccessToken, signUp } from '../lib/api-controller.js';
 
-    // Defining variables for global stuff
+    // Variables for global stuff
     let username;
     let password;
     let serverAddress = 'http://localhost:8080';
@@ -43,29 +43,35 @@
 </script>
 
 <header>
-    <h1>pmdrtmr</h1>
+    <h1>
+        pmdrtmr
+    </h1>
 </header>
 <main>
-    <h2>Sign up / Log in</h2>
-    <label for="username">Username:</label>
-    <br />
-    <input id="username" type="text" placeholder="Username" bind:value={username} />
-    <br />
-    <label for="password">Password:</label>
-    <br />
-    <input id="password" type="password" placeholder="Password" bind:value={password} />
-    <br />
-    <label for="server-address">Server address:</label>
-    <br />
-    <input id="server-address" type="text" placeholder="Server address" bind:value={serverAddress} />
-    <br />
-    <button on:click={signUpOrLogIn}>Sign up or log in</button>
+    <h2>
+        Sign up / Log in
+    </h2>
+    <label for="username">
+        Username:
+    </label>
+    <input id="username" type="text" placeholder="Username" bind:value={username}>
+    <label for="password">
+        Password:
+    </label>
+    <input id="password" type="password" placeholder="Password" bind:value={password}>
+    <label for="server-address">
+        Server address:
+    </label>
+    <input id="server-address" type="text" placeholder="Server address" bind:value={serverAddress}>
+    <button on:click={signUpOrLogIn}>
+        Sign up or log in
+    </button>
 </main>
 <footer>
     <p>
-        Made with &hearts; in Nothern Germany.
-        <br />
         2022
-        <a href="https://github.com/locxter">locxter</a>
+        <a href="https://github.com/locxter">
+            locxter
+        </a>
     </p>
 </footer>

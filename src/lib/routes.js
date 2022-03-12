@@ -8,7 +8,7 @@ import Timers from '../routes/Timers.svelte';
 import Settings from '../routes/Settings.svelte';
 import Timer from '../routes/Timer.svelte';
 
-// Defining variables for stores and subscribing to them
+// Define variables for stores and subscribe to them
 let accessToken;
 let serverAddress;
 ACCESS_TOKEN.subscribe(value => {
@@ -31,7 +31,7 @@ function canLoad() {
     }
 }
 
-// Exporting the routes configuration
+// Export the routes configuration
 export default {
     '/': Index,
     '/timers': wrap({
