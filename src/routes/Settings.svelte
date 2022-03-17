@@ -151,9 +151,6 @@
 </main>
 <footer>
     <p>
-        2022
-        <a href="https://github.com/locxter">
-            locxter
-        </a>
+        2022 locxter
     </p>
 </footer>
