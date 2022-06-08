@@ -2,7 +2,7 @@
     'use strict';
 
     import { push } from 'svelte-spa-router';
-    import { ACCESS_TOKEN, SERVER_ADDRESS } from '../lib/stores.js';
+    import { globalAccessToken, globalServerAddress } from '../lib/stores.js';
     import { retrieveAccessToken, signUp } from '../lib/api-controller.js';
 
     // Variables for global stuff
@@ -19,8 +19,8 @@
             };
             retrieveAccessToken(serverAddress, user)
                 .then((data) => {
-                    ACCESS_TOKEN.set(data);
-                    SERVER_ADDRESS.set(serverAddress);
+                    globalAccessToken.set(data);
+                    globalServerAddress.set(serverAddress);
                     push('/timers');
                 })
                 .catch((error) => {
@@ -30,8 +30,8 @@
                             return retrieveAccessToken(serverAddress, user);
                         })
                         .then((data) => {
-                            ACCESS_TOKEN.set(data);
-                            SERVER_ADDRESS.set(serverAddress);
+                            globalAccessToken.set(data);
+                            globalServerAddress.set(serverAddress);
                             push('/timers');
                         })
                         .catch((error) => {

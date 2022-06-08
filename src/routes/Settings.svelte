@@ -2,7 +2,7 @@
     'use strict';
 
     import { push, link } from 'svelte-spa-router';
-    import { ACCESS_TOKEN, SERVER_ADDRESS } from '../lib/stores.js';
+    import { globalAccessToken, globalServerAddress } from '../lib/stores.js';
     import { revokeAccessToken, getUser, updateUser, deleteUser } from '../lib/api-controller.js';
 
     // Variables for stores and global stuff
@@ -13,10 +13,10 @@
     let deleteConfirmation;
 
     // Subscribe to global stores
-    ACCESS_TOKEN.subscribe((data) => {
+    globalAccessToken.subscribe((data) => {
         accessToken = data;
     });
-    SERVER_ADDRESS.subscribe((data) => {
+    globalServerAddress.subscribe((data) => {
         serverAddress = data;
     });
 
@@ -35,8 +35,8 @@
     function logOut() {
         revokeAccessToken(serverAddress, accessToken)
             .then(() => {
-                ACCESS_TOKEN.set(null);
-                SERVER_ADDRESS.set(null);
+                globalAccessToken.set(null);
+                globalServerAddress.set(null);
                 push('/');
             })
             .catch((error) => {
@@ -66,8 +66,8 @@
         if (deleteConfirmation === settings.username) {
             deleteUser(serverAddress, accessToken)
                 .then(() => {
-                    ACCESS_TOKEN.set(null);
-                    SERVER_ADDRESS.set(null);
+                    globalAccessToken.set(null);
+                    globalServerAddress.set(null);
                     push('/');
                 })
                 .catch((error) => {
