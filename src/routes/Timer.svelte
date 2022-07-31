@@ -14,6 +14,8 @@
     let countdownTimeLeft;
     let countdownInterval;
     let isPaused = false;
+    let workGong = new Audio('work-gong.mp3');
+    let breakGong = new Audio('break-gong.mp3');
 
     // Subscribe to global stores
     globalAccessToken.subscribe((data) => {
@@ -60,6 +62,11 @@
                             }
                         }
                     }, 1000);
+                    if (timer.isBreak) {
+                        breakGong.play();
+                    } else {
+                        workGong.play();
+                    }
                 }
             })
             .catch((error) => {
