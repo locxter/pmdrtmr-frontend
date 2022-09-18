@@ -11,11 +11,11 @@ import Timer from '../routes/Timer.svelte';
 // Define variables for stores and subscribe to them
 let accessToken;
 let serverAddress;
-globalAccessToken.subscribe(value => {
+globalAccessToken.subscribe((value) => {
     accessToken = value;
 });
 
-globalServerAddress.subscribe(value => {
+globalServerAddress.subscribe((value) => {
     serverAddress = value;
 });
 
