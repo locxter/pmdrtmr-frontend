@@ -51,21 +51,32 @@
     <h2>
         Sign up / Log in
     </h2>
-    <label for="username">
-        Username:
-    </label>
-    <input id="username" type="text" placeholder="Username" bind:value={username}>
-    <label for="password">
-        Password:
-    </label>
-    <input id="password" type="password" placeholder="Password" bind:value={password}>
-    <label for="server-address">
-        Server address:
-    </label>
-    <input id="server-address" type="text" placeholder="Server address" bind:value={serverAddress}>
-    <button on:click={signUpOrLogIn}>
-        Sign up or log in
-    </button>
+    <p>
+        <label for="username">
+            Username:
+        </label>
+        <br>
+        <input id="username" type="text" placeholder="Username" bind:value={username}>
+    </p>
+    <p>
+        <label for="password">
+            Password:
+        </label>
+        <br>
+        <input id="password" type="password" placeholder="Password" bind:value={password}>
+    </p>
+    <p>
+        <label for="server-address">
+            Server address:
+        </label>
+        <br>
+        <input id="server-address" type="text" placeholder="Server address" bind:value={serverAddress}>
+    </p>
+    <p>
+        <button on:click={signUpOrLogIn}>
+            Sign up or log in
+        </button>
+    </p>
 </main>
 <footer>
     <p>

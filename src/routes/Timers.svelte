@@ -116,13 +116,15 @@
     <h2>
         Timers
     </h2>
-    <button on:click={toggleShowCaldavTasks}>
-        {#if showCaldavTasks}
-            Hide CalDAV tasks
-        {:else}
-            Show CalDAV tasks
-        {/if}
-    </button>
+    <p>
+        <button on:click={toggleShowCaldavTasks}>
+            {#if showCaldavTasks}
+                Hide CalDAV tasks
+            {:else}
+                Show CalDAV tasks
+            {/if}
+        </button>
+    </p>
     {#if showCaldavTasks}
         {#if caldavTasks && caldavTasks.length > 0}
             <ul>
@@ -131,9 +133,11 @@
                         <p>
                             {caldavTask}
                         </p>
-                        <button on:click={addTask(caldavTask)}>
-                            Add task
-                        </button>
+                        <p>
+                            <button on:click={addTask(caldavTask)}>
+                                Add task
+                            </button>
+                        </p>
                     </li>
                 {/each}
             </ul>
@@ -143,10 +147,14 @@
             </p>
         {/if}
     {/if}
-    <input type="text" placeholder="Task" bind:value={localTask}>
-    <button on:click={addTask(localTask)}>
-        Add task
-    </button>
+    <p>
+        <input type="text" placeholder="Task" bind:value={localTask}>
+    </p>
+    <p>
+        <button on:click={addTask(localTask)}>
+            Add task
+        </button>
+    </p>
     {#if timers && timers.length > 1}
         <ol>
             {#each timers as timer}
@@ -162,16 +170,20 @@
                         {timer.description}
                     </p>
                     {#if !timer.isBreak}
-                    <button on:click={deleteTask(timer.id)}>
-                        Delete task
-                    </button>
+                    <p>
+                        <button on:click={deleteTask(timer.id)}>
+                            Delete task
+                        </button>
+                    </p>
                     {/if}
                 </li>
             {/each}
         </ol>
-        <button on:click={startWorking}>
-            Start working
-        </button>
+        <p>
+            <button on:click={startWorking}>
+                Start working
+            </button>
+        </p>
     {:else}
         <p>
             No timers found

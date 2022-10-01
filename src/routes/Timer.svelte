@@ -14,8 +14,8 @@
     let countdownTimeLeft;
     let countdownInterval;
     let isPaused = false;
-    let workGong = new Audio('work-gong.mp3');
-    let breakGong = new Audio('break-gong.mp3');
+    let workGong = new Audio('sounds/work-gong.mp3');
+    let breakGong = new Audio('sounds/break-gong.mp3');
 
     // Subscribe to global stores
     globalAccessToken.subscribe((data) => {
@@ -158,17 +158,20 @@
         <p id="countdown">
             {countdown}
         </p>
-        <button on:click={toggleIsPaused}>
-            {#if isPaused}
-                Resume
-            {:else}
-                Pause
-            {/if}
-        </button>
-        <br>
-        <button on:click={stopWorking}>
-            Stop working
-        </button>
+        <p>
+            <button on:click={toggleIsPaused}>
+                {#if isPaused}
+                    Resume
+                {:else}
+                    Pause
+                {/if}
+            </button>
+        </p>
+        <p>
+            <button on:click={stopWorking}>
+                Stop working
+            </button>
+        </p>
     {:else}
         <h2>
             Timer

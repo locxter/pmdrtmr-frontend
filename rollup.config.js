@@ -1,3 +1,4 @@
+import fs from 'fs';
 import svelte from 'rollup-plugin-svelte';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -31,10 +32,9 @@ function serve() {
 export default {
 	input: 'src/main.js',
 	output: {
-		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'public/build/bundle.js'
+		file: 'public/scripts/index.js'
 	},
 	plugins: [
 		svelte({
@@ -45,7 +45,14 @@ export default {
 		}),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
-		css({ output: 'bundle.css' }),
+		css({
+			output: (styles, styleNodes) => {
+				if (!fs.existsSync('public/styles')) {
+					fs.mkdirSync('public/styles');
+				}
+				fs.writeFileSync('public/styles/index.css', styles);
+			}
+		}),
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
