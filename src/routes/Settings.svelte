@@ -87,6 +87,9 @@
         <a href="/timers" use:link>
             Timers
         </a>
+        <a href="/settings" use:link>
+            Settings
+        </a>
         <button on:click={logOut}>
             Log out
         </button>

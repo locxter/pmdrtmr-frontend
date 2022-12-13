@@ -35,10 +35,10 @@
                     timers = data;
                     timer = timers[index];
                     countdown = timer.duration + ':00';
-                    countdownTimeLeft = timer.duration * 60 - 1;
+                    countdownTimeLeft = (timer.duration * 60) - 1;
                     countdownInterval = setInterval(() => {
                         let countdownMinutes = Math.floor(countdownTimeLeft / 60);
-                        let countdownSeconds = Math.floor(countdownTimeLeft % 60);
+                        let countdownSeconds = countdownTimeLeft % 60;
                         if (countdownMinutes < 10) {
                             countdownMinutes = '0' + countdownMinutes;
                         }
@@ -95,7 +95,7 @@
         } else {
             countdownInterval = setInterval(() => {
                 let countdownMinutes = Math.floor(countdownTimeLeft / 60);
-                let countdownSeconds = Math.floor(countdownTimeLeft % 60);
+                let countdownSeconds = countdownTimeLeft % 60;
                 if (countdownMinutes < 10) {
                     countdownMinutes = '0' + countdownMinutes;
                 }
@@ -135,6 +135,9 @@
         pmdrtmr
     </h1>
     <nav>
+        <a href="/timers" use:link>
+            Timers
+        </a>
         <a href="/settings" use:link>
             Settings
         </a>

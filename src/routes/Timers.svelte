@@ -104,6 +104,9 @@
         pmdrtmr
     </h1>
     <nav>
+        <a href="/timers" use:link>
+            Timers
+        </a>
         <a href="/settings" use:link>
             Settings
         </a>
