@@ -131,19 +131,11 @@
 </script>
 
 <header>
-    <h1>
-        pmdrtmr
-    </h1>
+    <h1>pmdrtmr</h1>
     <nav>
-        <a href="/timers" use:link>
-            Timers
-        </a>
-        <a href="/settings" use:link>
-            Settings
-        </a>
-        <button on:click={logOut}>
-            Log out
-        </button>
+        <a href="/timers" use:link>Timers</a>
+        <a href="/settings" use:link>Settings</a>
+        <button on:click={logOut}>Log out</button>
     </nav>
 </header>
 <main>
@@ -155,12 +147,8 @@
                 Work
             {/if}
         </h2>
-        <p>
-            {timer.description}
-        </p>
-        <p id="countdown">
-            {countdown}
-        </p>
+        <p>{timer.description}</p>
+        <p id="countdown">{countdown}</p>
         <p>
             <button on:click={toggleIsPaused}>
                 {#if isPaused}
@@ -171,23 +159,15 @@
             </button>
         </p>
         <p>
-            <button on:click={stopWorking}>
-                Stop working
-            </button>
+            <button on:click={stopWorking}>Stop working</button>
         </p>
     {:else}
-        <h2>
-            Timer
-        </h2>
-        <p>
-            Timer not found
-        </p>
+        <h2>Timer</h2>
+        <p>Timer not found</p>
     {/if}
 </main>
 <footer>
-    <p>
-        2022 locxter
-    </p>
+    <p>2022 locxter</p>
 </footer>
 
 <style>

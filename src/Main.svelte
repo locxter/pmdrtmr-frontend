@@ -6,5 +6,4 @@
     import routes from './lib/routes.js';
 </script>
 
-<Router {routes}>
-</Router>
+<Router {routes}></Router>

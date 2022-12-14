@@ -100,25 +100,15 @@
 </script>
 
 <header>
-    <h1>
-        pmdrtmr
-    </h1>
+    <h1>pmdrtmr</h1>
     <nav>
-        <a href="/timers" use:link>
-            Timers
-        </a>
-        <a href="/settings" use:link>
-            Settings
-        </a>
-        <button on:click={logOut}>
-            Log out
-        </button>
+        <a href="/timers" use:link>Timers</a>
+        <a href="/settings" use:link>Settings</a>
+        <button on:click={logOut}>Log out</button>
     </nav>
 </header>
 <main>
-    <h2>
-        Timers
-    </h2>
+    <h2>Timers</h2>
     <p>
         <button on:click={toggleShowCaldavTasks}>
             {#if showCaldavTasks}
@@ -133,30 +123,20 @@
             <ul>
                 {#each caldavTasks as caldavTask}
                     <li>
+                        <p>{caldavTask}</p>
                         <p>
-                            {caldavTask}
-                        </p>
-                        <p>
-                            <button on:click={addTask(caldavTask)}>
-                                Add task
-                            </button>
+                            <button on:click={addTask(caldavTask)}>Add task</button>
                         </p>
                     </li>
                 {/each}
             </ul>
         {:else}
-            <p>
-                No CalDav tasks found
-            </p>
+            <p>No CalDav tasks found</p>
         {/if}
     {/if}
+    <p><input type="text" placeholder="Task" bind:value={localTask}></p>
     <p>
-        <input type="text" placeholder="Task" bind:value={localTask}>
-    </p>
-    <p>
-        <button on:click={addTask(localTask)}>
-            Add task
-        </button>
+        <button on:click={addTask(localTask)}>Add task</button>
     </p>
     {#if timers && timers.length > 1}
         <ol>
@@ -169,32 +149,22 @@
                             Work
                         {/if}
                     </h3>
-                    <p>
-                        {timer.description}
-                    </p>
+                    <p>{timer.description}</p>
                     {#if !timer.isBreak}
                     <p>
-                        <button on:click={deleteTask(timer.id)}>
-                            Delete task
-                        </button>
+                        <button on:click={deleteTask(timer.id)}>Delete task</button>
                     </p>
                     {/if}
                 </li>
             {/each}
         </ol>
         <p>
-            <button on:click={startWorking}>
-                Start working
-            </button>
+            <button on:click={startWorking}>Start working</button>
         </p>
     {:else}
-        <p>
-            No timers found
-        </p>
+        <p>No timers found</p>
     {/if}
 </main>
 <footer>
-    <p>
-        2022 locxter
-    </p>
+    <p>2022 locxter</p>
 </footer>

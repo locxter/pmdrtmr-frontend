@@ -43,43 +43,29 @@
 </script>
 
 <header>
-    <h1>
-        pmdrtmr
-    </h1>
+    <h1>pmdrtmr</h1>
 </header>
 <main>
-    <h2>
-        Sign up / Log in
-    </h2>
+    <h2>Sign up / Log in</h2>
     <p>
-        <label for="username">
-            Username:
-        </label>
+        <label for="username">Username:</label>
         <br>
         <input id="username" type="text" placeholder="Username" bind:value={username}>
     </p>
     <p>
-        <label for="password">
-            Password:
-        </label>
+        <label for="password">Password:</label>
         <br>
         <input id="password" type="password" placeholder="Password" bind:value={password}>
     </p>
     <p>
-        <label for="server-address">
-            Server address:
-        </label>
+        <label for="server-address">Server address:</label>
         <br>
         <input id="server-address" type="text" placeholder="Server address" bind:value={serverAddress}>
     </p>
     <p>
-        <button on:click={signUpOrLogIn}>
-            Sign up or log in
-        </button>
+        <button on:click={signUpOrLogIn}>Sign up or log in</button>
     </p>
 </main>
 <footer>
-    <p>
-        2022 locxter
-    </p>
+    <p>2022 locxter</p>
 </footer>
