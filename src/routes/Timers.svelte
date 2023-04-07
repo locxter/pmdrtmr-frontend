@@ -3,7 +3,13 @@
 
     import { push, link } from 'svelte-spa-router';
     import { globalAccessToken, globalServerAddress } from '../lib/stores.js';
-    import { revokeAccessToken, getAllTimersOfUser, createTimer, deleteTimer, getCaldavDescriptions } from '../lib/api-controller.js';
+    import {
+        revokeAccessToken,
+        getAllTimersOfUser,
+        createTimer,
+        deleteTimer,
+        getCaldavDescriptions,
+    } from '../lib/api-controller.js';
 
     // Variables for stores and global stuff
     let accessToken;
@@ -134,7 +140,7 @@
             <p>No CalDav tasks found</p>
         {/if}
     {/if}
-    <p><input type="text" placeholder="Task" bind:value={localTask}></p>
+    <p><input type="text" placeholder="Task" bind:value={localTask} /></p>
     <p>
         <button on:click={addTask(localTask)}>Add task</button>
     </p>
@@ -151,9 +157,9 @@
                     </h3>
                     <p>{timer.description}</p>
                     {#if !timer.isBreak}
-                    <p>
-                        <button on:click={deleteTask(timer.id)}>Delete task</button>
-                    </p>
+                        <p>
+                            <button on:click={deleteTask(timer.id)}>Delete task</button>
+                        </p>
                     {/if}
                 </li>
             {/each}

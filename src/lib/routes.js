@@ -36,21 +36,15 @@ export default {
     '/': Index,
     '/timers': wrap({
         component: Timers,
-        conditions: [
-            canLoad
-        ]
+        conditions: [canLoad],
     }),
     '/settings': wrap({
         component: Settings,
-        conditions: [
-            canLoad
-        ]
+        conditions: [canLoad],
     }),
     '/timer': wrap({
         component: Timer,
-        conditions: [
-            canLoad
-        ]
+        conditions: [canLoad],
     }),
-    '*': Index
+    '*': Index,
 };

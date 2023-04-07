@@ -92,38 +92,38 @@
     {#if settings}
         <p>
             <label for="username">Username:</label>
-            <br>
-            <input id="username" type="text" placeholder="Username" bind:value={settings.username}>
+            <br />
+            <input id="username" type="text" placeholder="Username" bind:value={settings.username} />
         </p>
         <p>
             <label for="password">Password:</label>
-            <br>
-            <input id="password" type="password" placeholder="Password" bind:value={password}>
+            <br />
+            <input id="password" type="password" placeholder="Password" bind:value={password} />
         </p>
         <p>
             <label for="work-duration">Work duration:</label>
-            <br>
-            <input id="work-duration" type="number" min="1" max="60" bind:value={settings.workDuration}>
+            <br />
+            <input id="work-duration" type="number" min="1" max="60" bind:value={settings.workDuration} />
         </p>
         <p>
             <label for="short-break-duration">Short break duration:</label>
-            <br>
-            <input id="short-break-duration" type="number" min="1" max="60" bind:value={settings.shortBreakDuration}>
+            <br />
+            <input id="short-break-duration" type="number" min="1" max="60" bind:value={settings.shortBreakDuration} />
         </p>
         <p>
             <label for="long-break-duration">Long break duration:</label>
-            <br>
-            <input id="long-break-duration" type="number" min="1" max="60" bind:value={settings.longBreakDuration}>
+            <br />
+            <input id="long-break-duration" type="number" min="1" max="60" bind:value={settings.longBreakDuration} />
         </p>
         <p>
             <label for="long-break-ratio">Long break ratio:</label>
-            <br>
-            <input id="long-break-ratio" type="number" min="1" max="10" bind:value={settings.longBreakRatio}>
+            <br />
+            <input id="long-break-ratio" type="number" min="1" max="10" bind:value={settings.longBreakRatio} />
         </p>
         <p>
             <label for="caldav-address">CalDAV address:</label>
-            <br>
-            <input id="caldav-address" type="text" placeholder="CalDAV address" bind:value={settings.caldavAddress}>
+            <br />
+            <input id="caldav-address" type="text" placeholder="CalDAV address" bind:value={settings.caldavAddress} />
         </p>
         <p>
             Remember to always enter a password even though you may not want to change it, as the settings
@@ -136,8 +136,8 @@
         <h3>Danger zone</h3>
         <p>
             <label for="username">Username:</label>
-            <br>
-            <input id="username" type="text" placeholder="Username" bind:value={deleteConfirmation}>
+            <br />
+            <input id="username" type="text" placeholder="Username" bind:value={deleteConfirmation} />
         </p>
         <p>
             <button on:click={deleteThisAccount}>

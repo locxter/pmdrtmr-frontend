@@ -35,7 +35,7 @@
                     timers = data;
                     timer = timers[index];
                     countdown = timer.duration + ':00';
-                    countdownTimeLeft = (timer.duration * 60) - 1;
+                    countdownTimeLeft = timer.duration * 60 - 1;
                     countdownInterval = setInterval(() => {
                         let countdownMinutes = Math.floor(countdownTimeLeft / 60);
                         let countdownSeconds = countdownTimeLeft % 60;

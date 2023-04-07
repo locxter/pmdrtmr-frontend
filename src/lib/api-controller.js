@@ -11,9 +11,9 @@ export async function retrieveAccessToken(serverAddress, user) {
     response = await fetch(serverAddress + '/oauth/token', {
         method: 'POST',
         headers: {
-            'Authorization': 'Basic cG1kcnRtcjpwbWRydG1y'
+            Authorization: 'Basic cG1kcnRtcjpwbWRydG1y',
         },
-        body: data
+        body: data,
     });
     responseText = await response.text();
     if (response.ok) {
@@ -35,8 +35,8 @@ export async function revokeAccessToken(serverAddress, accessToken) {
     response = await fetch(serverAddress + '/oauth/revoke-token', {
         method: 'DELETE',
         headers: {
-            'Authorization': 'Bearer ' + accessToken
-        }
+            Authorization: 'Bearer ' + accessToken,
+        },
     });
     responseText = await response.text();
     if (response.ok) {
@@ -53,9 +53,9 @@ export async function signUp(serverAddress, user) {
     response = await fetch(serverAddress + '/signup', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(user),
     });
     responseText = await response.text();
     if (response.ok) {
@@ -77,8 +77,8 @@ export async function getUser(serverAddress, accessToken) {
     response = await fetch(serverAddress + '/user', {
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer ' + accessToken
-        }
+            Authorization: 'Bearer ' + accessToken,
+        },
     });
     responseText = await response.text();
     if (response.ok) {
@@ -100,10 +100,10 @@ export async function updateUser(serverAddress, accessToken, user) {
     response = await fetch(serverAddress + '/user', {
         method: 'PUT',
         headers: {
-            'Authorization': 'Bearer ' + accessToken,
-            'Content-Type': 'application/json'
+            Authorization: 'Bearer ' + accessToken,
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(user),
     });
     responseText = await response.text();
     if (response.ok) {
@@ -125,8 +125,8 @@ export async function deleteUser(serverAddress, accessToken) {
     response = await fetch(serverAddress + '/user', {
         method: 'DELETE',
         headers: {
-            'Authorization': 'Bearer ' + accessToken
-        }
+            Authorization: 'Bearer ' + accessToken,
+        },
     });
     responseText = await response.text();
     if (response.ok) {
@@ -148,8 +148,8 @@ export async function getCaldavDescriptions(serverAddress, accessToken) {
     response = await fetch(serverAddress + '/caldav', {
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer ' + accessToken
-        }
+            Authorization: 'Bearer ' + accessToken,
+        },
     });
     responseText = await response.text();
     if (response.ok) {
@@ -171,8 +171,8 @@ export async function getAllTimersOfUser(serverAddress, accessToken) {
     response = await fetch(serverAddress + '/timers', {
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer ' + accessToken
-        }
+            Authorization: 'Bearer ' + accessToken,
+        },
     });
     responseText = await response.text();
     if (response.ok) {
@@ -194,10 +194,10 @@ export async function createTimer(serverAddress, accessToken, timer) {
     response = await fetch(serverAddress + '/timers', {
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer ' + accessToken,
-            'Content-Type': 'application/json'
+            Authorization: 'Bearer ' + accessToken,
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify(timer)
+        body: JSON.stringify(timer),
     });
     responseText = await response.text();
     if (response.ok) {
@@ -219,8 +219,8 @@ export async function getTimer(serverAddress, accessToken, id) {
     response = await fetch(serverAddress + '/timers/' + id, {
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer ' + accessToken
-        }
+            Authorization: 'Bearer ' + accessToken,
+        },
     });
     responseText = await response.text();
     if (response.ok) {
@@ -242,8 +242,8 @@ export async function deleteTimer(serverAddress, accessToken, id) {
     response = await fetch(serverAddress + '/timers/' + id, {
         method: 'DELETE',
         headers: {
-            'Authorization': 'Bearer ' + accessToken
-        }
+            Authorization: 'Bearer ' + accessToken,
+        },
     });
     responseText = await response.text();
     if (response.ok) {
